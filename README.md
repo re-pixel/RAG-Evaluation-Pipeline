@@ -4,13 +4,13 @@ A comprehensive evaluation pipeline for Retrieval-Augmented Generation (RAG) sys
 
 ## Overview
 
-This project provides a systematic framework for evaluating different text chunking and retrieval strategies in RAG systems. It uses ChromaDB for vector storage and retrieval, and evaluates performance across multiple metrics including recall, precision, and Intersection over Union (IoU).
+This project provides a systematic framework for evaluating different text chunking and retrieval strategies in RAG systems. It uses ChromaDB for vector storage and retrieval, and evaluates performance across multiple metrics including recall, precision, and Intersection over Union (IoU). More detailed overview is given in the report/report.ipynb file.
 
 ## Features
 
 - **Multiple Chunking Strategies**: Evaluate different chunk sizes and overlap configurations
 - **Comprehensive Metrics**: Assess retrieval quality using recall, precision, and IoU scores
-- **Vector Database Integration**: ChromaDB-based storage for efficient similarity search
+- **Vector Database Integration**: ChromaDB-based storage for efficient similarity search over embeddings
 - **Configurable Retrieval**: Test different numbers of retrieved chunks
 - **Batch Processing**: Efficient processing of large document collections
 
@@ -33,6 +33,12 @@ This project provides a systematic framework for evaluating different text chunk
     └── report.ipynb          # Detailed analysis notebook
 ```
 
+## Key Evaluation Metrics
+
+- **Recall**: Measures how much of the relevant information is retrieved
+- **Precision**: Measures the relevance of retrieved information
+- **IoU (Intersection over Union)**: Measures overlap between retrieved and reference text ranges
+
 ## Results Folder
 
 The `results/` directory serves as a reference for evaluation outcomes:
@@ -47,13 +53,7 @@ Contains comprehensive evaluation metrics across different configurations:
 - **precision**: Mean ± std deviation of precision scores
 
 ### `results_table.png` (Generated)
-Visual representation of the results table. This file is auto-generated from `results.csv` using `table.py` and should not be committed to the repository.
-
-## Key Evaluation Metrics
-
-- **Recall**: Measures how much of the relevant information is retrieved
-- **Precision**: Measures the relevance of retrieved information
-- **IoU (Intersection over Union)**: Measures overlap between retrieved and reference text ranges
+Visual representation of the results table. This file is auto-generated from `results.csv` using `table.py`.
 
 ## Getting Started
 
@@ -100,12 +100,6 @@ n_retrievals = [1, 5, 10]
 
 Modify these to test different chunking strategies and retrieval configurations.
 
-## Important Notes
-
-- **ChromaDB Directory**: The `./chromadb/` directory contains binary database files and should not be committed to version control. It will be created automatically when running the evaluation.
-- **Generated Files**: `results_table.png` is a generated artifact and is excluded from version control.
-- **Incremental Evaluation**: The pipeline checks existing results and only runs missing configurations, allowing for incremental experimentation.
-
 ## Data Format
 
 ### Questions CSV
@@ -116,18 +110,3 @@ Expected format:
 
 ### Corpus
 Markdown or text format containing the source documents for evaluation.
-
-## License
-
-See repository license file for details.
-
-## Contributing
-
-Contributions are welcome! Please ensure:
-1. Code follows existing style conventions
-2. Evaluation metrics remain consistent
-3. Generated files are not committed
-
-## Citation
-
-If you use this evaluation pipeline in your research, please cite appropriately.
